@@ -2,7 +2,7 @@
 
 namespace Mini_drive.Models
 {
-    public class Files
+    public class FilesModel
     {
         [Key]
         public Guid Id { get; set; } new Guid Guid { get; set; }

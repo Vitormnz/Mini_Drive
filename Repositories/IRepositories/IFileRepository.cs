@@ -4,10 +4,10 @@ namespace Mini_drive.Repositories.IRepositories
 {
     public interface IFilerepository
     {
-        Task<Files> UpdateFileAsync(Files file);
-        Task<Files> CreateFileAsync(Files file);
-        Task<Files?> GetFileByIdAsync(Guid id);
-        Task<List<Files>> GetAllFilesAsync();
+        Task<FilesModel> UpdateFileAsync(FilesModel file);
+        Task<FilesModel> CreateFileAsync(FilesModel file);
+        Task<FilesModel?> GetFileByIdAsync(Guid id);
+        Task<List<FilesModel>> GetAllFilesAsync();
         Task DeleteFilesAsync(Guid id);
 
     }

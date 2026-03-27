@@ -9,13 +9,13 @@ namespace Mini_drive.Data
         {
         }
 
-        public DbSet<Files> Files { get; set; }
+        public DbSet<FilesModel> Files { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Files>()
+            modelBuilder.Entity<FilesModel>()
                 .HasKey(f => f.Id);
 
         }

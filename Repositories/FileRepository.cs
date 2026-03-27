@@ -15,23 +15,23 @@ namespace Mini_drive.Repositories
         }
 
 
-        public async Task<List<Files>> GetAllFilesAsync()
+        public async Task<List<FilesModel>> GetAllFilesAsync()
         {
             return await _context.Files.ToListAsync();
         }
-        public async Task<Files?> GetFileByIdAsync(Guid id)
+        public async Task<FilesModel?> GetFileByIdAsync(Guid id)
         {
-            return await _context.FindAsync<Files>(id);
+            return await _context.FindAsync<FilesModel>(id);
         }
 
-        public async Task<Files> CreateFileAsync(Files file)
+        public async Task<FilesModel> CreateFileAsync(FilesModel file)
         {
             await _context.Files.AddAsync(file);
             await _context.SaveChangesAsync();
             return file;
         }
 
-        public async Task<Files> UpdateFileAsync(Files file)
+        public async Task<FilesModel> UpdateFileAsync(FilesModel file)
         {
             var existingFile = await _context.Files.FindAsync(file.Id);
             if (existingFile == null)
