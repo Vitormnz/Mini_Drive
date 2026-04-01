@@ -19,6 +19,12 @@ namespace Mini_drive.Repositories
         {
             return await _context.Files.ToListAsync();
         }
+        public async Task<FilesModel?> GetFileByTipoAsync(string Extensao)
+        {
+            return await _context.Files
+                .FirstOrDefaultAsync(f => f.Extensao == Extensao);
+        }
+
         public async Task<FilesModel?> GetFileByIdAsync(Guid id)
         {
             return await _context.FindAsync<FilesModel>(id);
