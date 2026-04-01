@@ -4,11 +4,13 @@ namespace Mini_drive.Services.IServices
 {
     public interface IFileService
     {
-        Task<FilesModel> UpdateFiles(Guid id);
+        Task<FilesModel> UpdateFiles(Guid id, IFormFile file);
         Task<FilesModel> CreateFilesAsync(FilesModel file);
 
-        Task<FilesModel> DeleteFilesAsync(Guid id);
-        Task<FilesModel> GetFilesAsync(Guid id);
+        Task DeleteFilesAsync(Guid id);
+        Task<FilesModel> GetFilesByTipoAsync(string Extensao);
+        Task<FilesModel> GetFilesByIdAsync(Guid id);
         Task<List<FilesModel>> GetAllFilesAsync();
+        Task<FilesModel> UploadFileAsync(IFormFile file);
     }
 }
