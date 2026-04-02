@@ -41,6 +41,14 @@ namespace Mini_drive.Controllers
             return Ok(file);
         }
 
+        [HttpGet("download/{id}")]
+        public async Task<IActionResult> DownloadFile(Guid id)
+        {
+            var file = await _fileService.DownloadFileAsync(id);
+            if (file == null)
+                return NotFound();
+            return File(file.ArquivoByte, file.TipoMime, file.NomeDoArquivo);
+        }
 
         [HttpPost("upload")]
         public async Task<IActionResult> UploadFile(IFormFile file)

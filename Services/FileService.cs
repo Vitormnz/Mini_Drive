@@ -28,6 +28,11 @@ namespace Mini_drive.Services
             return await _fileRepository.GetFileByTipoAsync(Extensao);
         }
 
+        public async Task<FilesModel> GetFilesByNameAsync(string NoNomeDoArquivo)
+        {
+            return await _fileRepository.GetFileByNomeAsync(NoNomeDoArquivo);
+        }
+
         public async Task DeleteFilesAsync(Guid id)
         {
             await _fileRepository.DeleteFilesAsync(id);
@@ -76,6 +81,10 @@ namespace Mini_drive.Services
 
             return await _fileRepository.CreateFileAsync(fileModel);
         }
-    }
 
+        public async Task<FilesModel> DownloadFileAsync(Guid id)
+        {
+            return await _fileRepository.DownloadFilesAsync(id);
+        }
+    }
 }

@@ -12,5 +12,7 @@ namespace Mini_drive.Services.IServices
         Task<FilesModel> GetFilesByIdAsync(Guid id);
         Task<List<FilesModel>> GetAllFilesAsync();
         Task<FilesModel> UploadFileAsync(IFormFile file);
+        Task<FilesModel> DownloadFileAsync(Guid id);
+        Task<FilesModel> GetFilesByNameAsync(string NoNomeDoArquivo);
     }
 }

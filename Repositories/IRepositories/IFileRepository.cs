@@ -10,6 +10,7 @@ namespace Mini_drive.Repositories.IRepositories
         Task<FilesModel> GetFileByIdAsync(Guid id);
         Task<List<FilesModel>> GetAllFilesAsync();
         Task DeleteFilesAsync(Guid id);
-
+        Task<FilesModel> GetFileByNomeAsync(string NoNomeDoArquivo);
+        Task<FilesModel> DownloadFilesAsync(Guid id);
     }
 }

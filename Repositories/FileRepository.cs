@@ -30,6 +30,12 @@ namespace Mini_drive.Repositories
             return await _context.FindAsync<FilesModel>(id);
         }
 
+        public async Task<FilesModel?> GetFileByNomeAsync(string NomeDoArquivo)
+        {
+            return await _context.Files
+                .FirstOrDefaultAsync(f => f.NomeDoArquivo == NomeDoArquivo);
+        }
+
         public async Task<FilesModel> CreateFileAsync(FilesModel file)
         {
             await _context.Files.AddAsync(file);
@@ -55,6 +61,16 @@ namespace Mini_drive.Repositories
             return existingFile;
         }
 
+        public async Task<FilesModel> DownloadFilesAsync(Guid id)
+        {
+            var file = await _context.Files
+                .FirstOrDefaultAsync(f => f.Id == id);
+
+            if (file == null)
+                throw new Exception("Arquivo não encontrado");
+
+            return file;
+        }
 
         public async Task DeleteFilesAsync(Guid id)
         {
